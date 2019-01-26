@@ -7,21 +7,22 @@ winFlag = False
 turnFlag = 1
 move = 0
 clear = "\n" * 100
-
-matrix = [['| |' for a in range(3)] for b in range(3)]
-print("Game is starting...")
-print("    1   2   3  ")
+matrix = [0][0]
 
 
-for k in range(3):
+def drawemptymatrix():
 
-    for l in range(3):
-        if l==0:
-            print(f"{k+1} ", matrix[k][l], end=" ")
-        else:
-            print(matrix[k][l], end=" ")
+    global matrix
+    matrix = [['| |' for a in range(3)] for b in range(3)]
+    for k in range(3):
+
+        for l in range(3):
+            if l == 0:
+                print(f"{k + 1} ", matrix[k][l], end=" ")
+            else:
+                print(matrix[k][l], end=" ")
+        print(" ")
     print(" ")
-print(" ")
 
 
 def restart():
@@ -41,19 +42,9 @@ def restart():
 
     print(clear)
 
-    matrix = [['| |' for a in range(3)] for b in range(3)]
     print("Game is starting...")
     print("    1   2   3  ")
-
-    for k in range(3):
-
-        for l in range(3):
-            if l == 0:
-                print(f"{k + 1} ", matrix[k][l], end=" ")
-            else:
-                print(matrix[k][l], end=" ")
-        print(" ")
-    print(" ")
+    drawemptymatrix()
 
 
 def change(turn):
@@ -94,6 +85,7 @@ def inputCheck():
     except Exception:
         print("Invalid input")
 
+
 def wincheck():
     global winFlag
     global matrix
@@ -116,7 +108,6 @@ def wincheck():
         winFlag = True
 
 
-# game
 def getreplaychoice():
     res = input(f'Would you like to play again?(y,n)')
     if res == 'y':
@@ -128,6 +119,10 @@ def getreplaychoice():
         getreplaychoice()
 
 
+print("Game is starting...")
+print("    1   2   3  ")
+drawemptymatrix()
+# game
 while move < maxMoveNumber:
 
     if winFlag == True:
