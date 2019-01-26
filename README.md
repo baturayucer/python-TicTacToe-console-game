@@ -1,2 +1,4 @@
 # python-TicTacToe-console-game
-a simple console game developed in python
+A simple console game developed in python
+To run:
+  python TicTacToe.py
